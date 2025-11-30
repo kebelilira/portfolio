@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Plano de Portfólio Blue Team | Kebeli Rodrigues</title>
     <meta name="description" content="Plano de Portfólio de Cibersegurança (Blue Team/SOC) focado em DevSecOps, alinhado à experiência de Kebeli Rodrigues." />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <button id="theme-toggle" class="theme-toggle" aria-label="Alternar Tema"></button>
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao Topo" style="display: none;">&#9650;</button>
     <div class="wrap">
         <div class="nav-container">
             <button id="menu-toggle" class="menu-toggle" aria-label="Alternar Menu">&#9776;</button>
@@ -21,6 +22,7 @@
             </ul>
         </div>
         <header>
+            <div class="paralax-bg"></div> <!-- Elemento de fundo para o paralaxe -->
             <div class="avatar" aria-hidden="true">KR</div>
             <div class="intro">
                 <div class="headline">Plano de Portfólio Blue Team / SOC com Foco em DevSecOps</div>
@@ -31,12 +33,17 @@
 
         <main>
             <h1 id="visao-geral">Plano de Portfólio de Cibersegurança (Blue Team/SOC)</h1>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="blue-team">Blue Team</button>
+                <button class="filter-btn" data-filter="devsecops">DevSecOps</button>
+            </div>
 <p>Prezada Kebeli Rodrigues,</p>
 <p>Com base na sua escolha pela área de <strong>Defesa e Operações de Segurança (Blue Team/SOC)</strong> e na análise do seu currículo, que demonstra uma sólida base em <strong>Desenvolvimento (Python, ASP.NET, SQL)</strong>, <strong>Administração de Sistemas (Linux/Windows)</strong> e <strong>Cloud/DevOps (AWS, Docker)</strong>, estruturamos um portfólio de três projetos.</p>
 <p>Este portfólio foi desenhado para destacar um perfil de <strong>Analista de SOC/Blue Team com mentalidade DevSecOps</strong>, uma combinação de habilidades extremamente valiosa no mercado atual.</p>
 <h2>Visão Geral dos Projetos</h2>
 <p>Os projetos a seguir utilizam suas habilidades existentes para criar um diferencial competitivo, mostrando que você não apenas detecta problemas, mas também entende a fundo como os sistemas e códigos funcionam.</p>
-<table>
+<table id="projects-table">
 <thead>
 <tr>
 <th style="text-align: left;">Projeto</th>
@@ -45,17 +52,17 @@
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr data-category="blue-team">
 <td style="text-align: left;"><strong>1. SIEM Case Study: Log Analysis com ELK/Splunk e SQL/Python</strong></td>
 <td style="text-align: left;">Coleta, normalização e análise avançada de logs.</td>
 <td style="text-align: left;"><strong>SQL</strong>, <strong>Python</strong>, Linux, Análise de Dados, SIEM (Elastic Stack ou Splunk Free).</td>
 </tr>
-<tr>
+<tr data-category="blue-team devsecops">
 <td style="text-align: left;"><strong>2. Análise de Tráfego e Detecção de Ataque Web</strong></td>
 <td style="text-align: left;">Análise de tráfego de rede (Wireshark) e detecção de ataques em aplicações.</td>
 <td style="text-align: left;">Redes (Protocolos), Análise Forense de Rede, <strong>ASP.NET/Desenvolvimento</strong>, Detecção de Vulnerabilidades.</td>
 </tr>
-<tr>
+<tr data-category="devsecops">
 <td style="text-align: left;"><strong>3. Playbook de Resposta a Incidentes em Ambiente Cloud/Docker</strong></td>
 <td style="text-align: left;">Criação de procedimentos de Resposta a Incidentes (IR) específicos para ambientes modernos.</td>
 <td style="text-align: left;"><strong>AWS</strong>, <strong>Docker</strong>, Resposta a Incidentes, Documentação Técnica, Administração de Sistemas.</td>
@@ -84,7 +91,7 @@
 4.  <strong>Documentação (Ponte DevSecOps):</strong>
     *   Explicar a detecção do ponto de vista do <strong>Analista de SOC</strong> (como a assinatura do ataque aparece no tráfego de rede).
     *   Explicar a causa raiz do ponto de vista do <strong>Desenvolvedor</strong> (por que o código ASP.NET falhou e como corrigi-lo usando <em>Prepared Statements</em>).</p>
-<h3 id="projeto-3">Projeto 3: Playbook de Resposta a Incidentes em Ambiente Cloud/Docker</h3>},{find:
+<h3 id="projeto-3">Projeto 3: Playbook de Resposta a Incidentes em Ambiente Cloud/Docker</h3>
 <p>Este projeto utiliza sua experiência em <strong>AWS</strong> e <strong>Docker</strong> para focar em um nicho de alto valor: a segurança de ambientes em nuvem e conteinerizados.</p>
 <p><strong>Objetivo:</strong> Criar um <strong>Playbook de Resposta a Incidentes</strong> (IR Playbook) detalhado para um cenário específico, como "Comprometimento de um Container Docker em um ambiente AWS ECS/EKS".</p>
 <p><strong>Passos Chave:</strong>
@@ -104,6 +111,6 @@
             <div style="margin-top:6px;color:var(--muted);font-size:12px">Lembre-se de substituir o conteúdo do cabeçalho e do rodapé com suas informações de contato e links reais.</div>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
