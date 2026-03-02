@@ -1,83 +1,243 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Kebeli Melo | Cybersecurity & AppSec</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <!-- BOTÃO MENU (TRÊS PONTOS) -->
+<div class="three-dots" aria-label="Menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- MENU HUD -->
+<nav class="hud-menu" id="hudMenu">
+
+  <a href="#home">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 11L12 3l9 8v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>
+    </svg>
+    <span>Home</span>
+  </a>
+
+  <a href="#about">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 12a5 5 0 1 0-0.001-10.001A5 5 0 0 0 12 12zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z"/>
+    </svg>
+    <span>Sobre</span>
+  </a>
+
+  <a href="#skills">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-3.5L6 21l1.5-7.5L2 9h7z"/>
+    </svg>
+    <span>Skills</span>
+  </a>
+
+  <a href="#experience">
+    <svg viewBox="0 0 24 24">
+      <path d="M4 7h16v13H4zM8 7V5h8v2"/>
+    </svg>
+    <span>Experiência</span>
+  </a>
+
+  <a href="#projects">
+    <svg viewBox="0 0 24 24">
+      <path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4zm9 4h7"/>
+    </svg>
+    <span>Projetos</span>
+  </a>
+
+  <a href="#contact">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M2 4h20v16H2z" />
+      <path d="M22 4L12 13 2 4" />
+    </svg>
+
+    <span>Contato</span>
+  </a>
+
+</nav>
 
 
-<header class="navbar">
-  <div class="menu-toggle" id="menuToggle">
-    <span></span><span></span><span></span>
-  </div>
-
-  <nav class="nav-buttons" id="navMenu">
-    <a href="#" class="nav-btn active">Home</a>
-    <a href="#about" class="nav-btn">About</a>
-    <a href="#projects" class="nav-btn">Projects</a>
-    <a href="#contact" class="nav-btn">Contact</a>
-  </nav>
-
-  <div class="theme-toggle" id="themeToggle">🌙</div>
-</header>
-
-<section class="hero reveal">
-<svg id="welcome" viewBox="0 0 1200 240">
-  <text
-    id="welcome-text"
-    x="50%"
-    y="60%"
-    text-anchor="middle"
-    dominant-baseline="middle"
-  >
-    Bem Vindo.
-  </text>
-
-</svg>
-
-
-  <h2>Security Engineer & AppSec</h2>
+<!-- HERO -->
+<section id="home" class="hero reveal">
+  <svg id="welcome" viewBox="0 0 1200 240"> <text id="welcome-text" x="50%" y="60%" text-anchor="middle" dominant-baseline="middle" >Olá, Bem vindo(a), eu sou o Kebeli.</text> </svg>
+  <span class="badge">Red Team • Offensive Security</span>
+  <h2><span>Engenheiro de Software com foco em Segurança e Confiabilidade</span></h2>
 
   <p>
-    I analyze, break and secure applications.
-    Focused on Pentest Web, AppSec and Blue Team operations.
+    I simulate real-world attacks to identify, exploit and report
+    security weaknesses before real adversaries do.
   </p>
 
   <div class="buttons">
-    <button class="primary">View My Work</button>
-    <button class="secondary">Get in Touch</button>
+    <button class="primary">View Red Team Labs</button>
+    <button class="secondary">Engage Me</button>
   </div>
 </section>
 
+
+<!-- ABOUT -->
 <section id="about" class="about reveal">
   <div class="text">
-    <h3>About Me</h3>
-    <p>Cybersecurity professional focused on AppSec and Blue Team.</p>
+    <h3>Sobre</h3>
+    <p>
+      Sou Engenheiro de Software com foco em segurança defensiva (Blue Team), 
+      atuando no desenvolvimento de aplicações seguras, monitoráveis e resilientes.
+
+      Tenho experiência com desenvolvimento backend e web, aplicando práticas de 
+      Secure Coding, tratamento de vulnerabilidades, logging estruturado, 
+      monitoramento de aplicações e análise de incidentes.
+
+      Meu objetivo é construir software que funcione bem, seja observável e 
+      resistente a falhas e ataques.
+
+    </p>
   </div>
-  <div class="pixel-art">🛡️</div>
+
+<div class="pixel-art">🛡️</div>
 </section>
 
+
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+  <h3>Atuação Técnica</h3>
+
+  <div class="skill-cards">
+
+    <div class="card">
+      <h4>Engenharia de Software</h4>
+      <span>Desenvolvimento Backend (PHP, C#, Java)</span>
+      <span>Arquitetura MVC e APIs REST</span>
+      <span>Integração entre sistemas</span>
+      <span>Manutenção e evolução de sistemas legados</span>
+      <span>Testes e boas práticas de código</span>
+    </div>
+
+   <div class="card">
+    <h4>Segurança Defensiva & AppSec</h4>
+    <span>OWASP Top 10</span>
+    <span>Secure Coding</span>
+    <span>Validação e sanitização de dados</span>
+    <span>Hardening de aplicações</span>
+    <span>Logging e auditoria</span>
+    <span>Monitoramento de aplicações</span>
+  </div>
+
+    <div class="card">
+      <h4>Blue Team e AppSec</h4>
+      <span>Secure Coding (OWASP Top 10)</span>
+      <span>Análise de vulnerabilidades em aplicações</span>
+      <span>Hardening de aplicações web</span>
+      <span>Logging e monitoramento de aplicações</span>
+      <span>Resposta a incidentes em nível de aplicação</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERIENCE -->
+<section id="experience" class="reveal">
+  <h3>Experience</h3>
+
+  <div class="card">
+    <strong> 2025 — Software Engineer (Security Focus)</strong>
+    <p>
+      Desenvolvimento de aplicações com foco em segurança defensiva,
+      análise de vulnerabilidades e boas práticas de Secure Coding.
+    </p>
+  </div>
+<p></p>
+  <div class="card">
+    <strong>2024 — Developer</strong>
+    <p>Backend and frontend development with security focus.</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects" class="projects reveal">
-  <h3>Projects</h3>
+  <h3>Projetos de Engenharia de Software & Segurança</h3>
+
   <div class="project-grid">
-    <div class="project-card reveal delay-1">
-      <h4>Vulnerable Web App</h4>
+    <div class="project-card">
+      <img src="https://picsum.photos/400/240?3">
+      <h4>API REST Segura</h4>
+    <p>
+      API desenvolvida com foco em autenticação, validação de entradas,
+      tratamento de erros e mitigação de vulnerabilidades OWASP.
+    </p>
+    <span>Secure Coding</span><span>Logs</span><span>OWASP</span><span>SQLi</span><span>XSS</span><span>IDOR</span>
+    <button class="btn">View Project</button>
     </div>
-    <div class="project-card reveal delay-2">
-      <h4>Secure API</h4>
+
+    <div class="project-card">
+      <img src="https://picsum.photos/400/240?4">
+      <h4>Analisador de Logs</h4>
+    <p>
+      Ferramenta para análise e correlação de logs de aplicações,
+      auxiliando na detecção de falhas e incidentes.
+    </p>
+    <span>Logs</span><span>Monitoring</span><span>Blue Team</span>
+    <button class="btn">View Project</button>
+
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact reveal">
-  <h3>Contact</h3>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <h2>Contato Profissional</h2>
+  <div class="contact-grid">
+   <?php
+    session_start();
+
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    ?>
+
+<form id="contactForm" action="Contato/Send.php" method="post">
+
+  <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
+  <!-- Honeypot -->
+  <input type="text" name="company" style="display:none">
+
+  <div class="input-box">
+    <input type="text" name="name" placeholder="Nome Completo" required>
+    <input type="email" name="email" placeholder="Email" required>
+  </div>
+
+  <div class="input-box">
+    <input type="text" name="phone" placeholder="Telefone">
+    <input type="text" name="subject" placeholder="Assunto" required>
+  </div>
+
+  <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+
+  <button type="submit" class="btn submit-btn">
+    <span class="btn-text">Enviar Mensagem</span>
+    <span class="btn-spinner hidden"></span>
+  </button>
+  <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+
+</form>
+<div id="form-feedback" class="form-feedback hidden"></div>
+    <div>
+      <p>
+        Disponível para oportunidades em Engenharia de Software,
+        Segurança de Aplicações (AppSec) e Blue Team.
+      </p>
+
+      <p>
+        🔗 GitHub (Writeups)<br>
+        💼 LinkedIn<br>
+        📧 Email
+      </p>
+    </div>
+  </div>
 </section>
+
 
 <div class="cursor-glow"></div>
 <script src="scripts/animation.js"></script>
-</body>
-</html>
+<script src="scripts/Validation.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=SUA_SITE_KEY"></script>
