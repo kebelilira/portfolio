@@ -1,187 +1,138 @@
-document.addEventListener("DOMContentLoaded", () => {
+const initLightMode = () => {
+  document.querySelector('input[type="checkbox"]').addEventListener('change', () => {
+    document.body.classList.toggle('light-mode') 
+  })
 
-  /* =========================
-     WELCOME TEXT ANIMATION
-  ========================== */
-  const text = document.getElementById("welcome-text");
+}
 
-  if (text && text.getComputedTextLength) {
-    const length = text.getComputedTextLength();
+const initOpenMenu = () => {
+  const menuBtn = document.querySelector('header .menu i')
+  const closeBtn = document.querySelector('header .menu i:nth-child(2)')
+  const menu = document.querySelector('.menuOpen');
+  const header = document.querySelector('header')
 
-    text.style.strokeDasharray = length;
-    text.style.strokeDashoffset = length;
+  const close = () => {
+    menu.classList.add('hidden')
+    menuBtn.classList.remove('hidden')
+    closeBtn.classList.add('hidden')
+    document.body.style.overflow = 'visible';
+    header.classList.remove('open')
 
-    text.style.animation = `
-      draw-line 1.6s ease forwards,
-      fill-in 0.6s ease forwards
-    `;
-
-    text.style.animationDelay = `0s, 1.6s`;
   }
 
-  /* =========================
-     SCROLL REVEAL
-  ========================== */
-  const reveals = document.querySelectorAll(".reveal");
-
-  if (reveals.length) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    reveals.forEach(el => observer.observe(el));
+  const open = () => {
+    menu.classList.remove('hidden')
+    menuBtn.classList.add('hidden')
+    closeBtn.classList.remove('hidden')
+    document.body.style.overflow = 'hidden';
+    header.classList.add('open')
   }
 
-  /* =========================
-     SCROLL PROGRESS + HEADER
-  ========================== */
-  const progressBar = document.getElementById("scroll-progress");
-  const navbar = document.querySelector(".navbar");
+  menuBtn.addEventListener('click', open)
 
-  if (progressBar || navbar) {
-    window.addEventListener("scroll", () => {
-      const scroll = window.scrollY;
-      const height =
-        document.documentElement.scrollHeight - window.innerHeight;
+  closeBtn.addEventListener('click', close)
 
-      if (progressBar && height > 0) {
-        progressBar.style.width = (scroll / height) * 100 + "%";
+  document.addEventListener('keydown', ({ key }) => key === "Escape" && close());
+
+  const links = document.querySelectorAll('nav a')
+
+  links.forEach(link => {
+    link.addEventListener('click', close)
+  })
+
+}
+
+const initAnimationScroll = () => {
+  const sections = document.querySelectorAll('.js-section')
+
+  const windowHalfSize = window.innerHeight * 0.6
+
+  const animateScroll = () => {
+    sections.forEach(item => {
+      const sectionTop = item.getBoundingClientRect().top
+
+      const isSectionVisible = (sectionTop - windowHalfSize) < 0
+
+      if (isSectionVisible) {
+        item.classList.add('active')
+      } else {
+        item.classList.remove('active')
       }
 
-      if (navbar) {
-        navbar.classList.toggle("scrolled", scroll > 50);
-      }
-    });
+    })
+
   }
 
-  /* =========================
-     CURSOR GLOW
-  ========================== */
-  const glow = document.querySelector(".cursor-glow");
+  animateScroll()
+  window.addEventListener('scroll', animateScroll)
 
-  if (glow) {
-    document.addEventListener("mousemove", e => {
-      glow.style.left = e.clientX + "px";
-      glow.style.top = e.clientY + "px";
-    });
+}
+
+const initScrollSmooth = () => {
+
+  const linksInternos = document.querySelectorAll('nav a')
+
+  linksInternos.forEach(item => {
+    const scrollToSection = (event) => {
+      event.preventDefault()
+      const href = event.currentTarget.getAttribute('href');
+      const section = document.querySelector(href)
+
+      window.scrollTo({
+        top: section.offsetTop - 100
+      })
+    }
+    item.addEventListener('click', scrollToSection)
+  })
+}
+
+const initTypingAnimation = () => {
+  const title = document.querySelector('#sobre .banner h1')
+  const span = document.querySelector('#sobre .banner span')
+  const paragraph = document.querySelector('#sobre .banner p')
+
+  const typingAnimation = (element) => {
+
+    if (element == title) {
+      element.innerHTML = 'Olá, eu sou o '
+      const textToArray = element.innerHTML.split('')
+      element.innerHTML = ''
+
+      textToArray.forEach((item, index) => {
+        setTimeout(() => element.innerHTML += item, 120 * index)
+      })
+
+    } else if (element == span) {
+      element.innerHTML = 'Kebeli Rodrigues'
+      const textToArray = element.innerHTML.split('')
+      element.innerHTML = ''
+
+      textToArray.forEach((item, index) => {
+        setTimeout(() => element.innerHTML += item, 150 * index)
+      })
+
+    } else {
+      element.innerHTML = 'Engenheiro de Software | Desenvolvedor C#, ASP.NET, JavaScript, Python, SQL'
+      const textToArray = element.innerHTML.split('')
+      element.innerHTML = ''
+
+      textToArray.forEach((item, index) => {
+        setTimeout(() => element.innerHTML += item, 75 * index)
+      })
+
+    }
+
   }
 
-  /* =========================
-     WELCOME SCANNER EFFECT
-  ========================== */
-  const welcome = document.getElementById("welcome-text");
-  const scanner = document.querySelector(".scanner");
+  typingAnimation(title)
+  setTimeout(() => typingAnimation(span), 1600)
+  setTimeout(() => typingAnimation(paragraph), 3700)
 
-  if (welcome && scanner) {
-    welcome.addEventListener("mouseenter", () => {
-      scanner.style.animation = "scanner 2s linear infinite";
-    });
-  }
-
-  /* =========================
-     HUD MENU (THREE DOTS)
-  ========================== */
-  const dotsButton = document.querySelector(".three-dots");
-  const hudMenu = document.getElementById("hudMenu");
-
-  if (dotsButton && hudMenu) {
-
-    dotsButton.addEventListener("click", (e) => {
-      e.stopPropagation();
-      dotsButton.classList.toggle("active");
-      hudMenu.classList.toggle("active");
-
-      animateDots(dotsButton);
-    });
-
-    document.addEventListener("click", () => {
-      dotsButton.classList.remove("active");
-      hudMenu.classList.remove("active");
-    });
-
-    hudMenu.addEventListener("click", (e) => {
-      e.stopPropagation();
-    });
-  }
-
-  /* =========================
-     HUD ACTIVE LINK (SCROLL)
-  ========================== */
-  const sections = document.querySelectorAll("section[id]");
-  const menuLinks = document.querySelectorAll(".hud-menu a");
-
-  if (sections.length && menuLinks.length) {
-
-    const activateMenu = () => {
-      let current = "";
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-
-        if (
-          window.scrollY >= sectionTop &&
-          window.scrollY < sectionTop + sectionHeight
-        ) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      menuLinks.forEach(link => {
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active");
-        }
-      });
-    };
-
-    window.addEventListener("scroll", activateMenu);
-    activateMenu();
-  }
-
-});
-
-
-/* =========================
-   SPRING ANIMATION FUNCTION
-========================== */
-function spring(el, keyframes) {
-  if (!el) return;
-
-  el.animate(keyframes, {
-    duration: 550,
-    easing: "cubic-bezier(0.34, 1.56, 0.64, 1)",
-    fill: "forwards"
-  });
 }
 
 
-/* =========================
-   DOTS ANIMATION
-========================== */
-function animateDots(button) {
-  const spans = button.querySelectorAll("span");
-  if (!spans.length) return;
-
-  if (button.classList.contains("active")) {
-
-    spring(spans[0], [
-      { transform: "translateY(0) rotate(0)" },
-      { transform: "translateY(12px) rotate(50deg)" },
-      { transform: "translateY(10px) rotate(45deg)" }
-    ]);
-
-    spring(spans[2], [
-      { transform: "translateY(0) rotate(0)" },
-      { transform: "translateY(-12px) rotate(-50deg)" },
-      { transform: "translateY(-10px) rotate(-45deg)" }
-    ]);
-
-  }
-}
+initOpenMenu()
+initAnimationScroll()
+initScrollSmooth()
+initLightMode()
+initTypingAnimation()
