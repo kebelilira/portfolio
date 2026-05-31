@@ -877,12 +877,12 @@ section#projects .container .cards-projects .box:hover .description {
 
 .menuOpen {
     position: fixed;
-    width: 50%;
+    width: 100%;
     z-index: 200;
     background-color: rgba(0,0,0,0.65);
     backdrop-filter: blur(10px);
-    top: 9%;
-    height: 50vh;
+    top: 10%;
+    height: 100vh;
     animation: appearField 1s;
     font-family: 'Poppins', sans-serif;
     display: flex;
