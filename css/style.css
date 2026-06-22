@@ -93,6 +93,15 @@ a {
         transform: scale(1)
     }
 }
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
 
 :root {
   /* cores principais */
@@ -101,7 +110,7 @@ a {
   --primary-light: #9b5cff;
 
   /* fundo */
-  --background-color: #13131F;
+  --background-color: #000000;
   --card-color: #212121;
 
   /* textos */
@@ -182,7 +191,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: #13131F
+    background-color: #000000
 }
 
 header.open {
@@ -451,8 +460,8 @@ section#sobre .banner .intro .actions a {
     padding: 1.2rem 2.7rem;
     background-image: linear-gradient(
         90deg,
-        #000000 0%,
-        #000000 92%
+        #13131F 0%,
+        #13131F 92%
     );
     color: #7B2FFF !important;
     display: flex;
@@ -462,17 +471,13 @@ section#sobre .banner .intro .actions a {
     transition: 0.3s
 }
 
-section#sobre .banner .intro .actions a:nth-child(2) {
-    background-image: none;
-    border: 0.1rem solid var(--primary-color-text);
-}
-
 section#sobre .banner .intro .actions a:hover {
     background-image: linear-gradient(
-    90deg,
-    var(--primary-color-text) 0%,
-    var(--primary-light) 92%
+    10deg,
+    #13131F 0%,
+    #13131F 92%
     );
+    color :#782bfe !important;
     transform: scale(0.95)
 }
 
@@ -575,7 +580,7 @@ section#skills .skills .container .cards {
 section#skills .skills .container .cards .box {
     position: relative;
     text-align: center;
-    background-color: var(--card-color);    
+    background-color: #13131F;    
     width: 12rem;
     aspect-ratio: 1;
     padding: 0;
@@ -636,7 +641,7 @@ section#contacts .contacts .container {
 section#contacts .contacts .container h2 {
     font-family: 'DM Sans', sans-serif;
     font-size: 3.2rem;
-    color: #F9F9F9;
+    color: #ffffff;
     font-weight: 600;
     margin-bottom: 10rem
 }
@@ -682,14 +687,14 @@ section#contacts .contacts .icons .icon a p {
     font-family: 'DM Sans', sans-serif;
     font-size: 1.8rem;
     font-weight: bold;
-    color: #F9F9F9
+    color: #ffffff
 }
 
 section#contacts .contacts .icons .icon .box {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--card-color);
+    background-color: #13131F;
     border-radius: 50%
 }
 
@@ -728,7 +733,7 @@ section#projects .container h3::after {
     height: 0.3rem;
     border-radius: 2rem;
     margin-top: 0.8rem;
-    color: var(--primary-color-text);
+    background: var(--primary-color-text); /* Add this line */
 }
 
 section#projects .container .cards-projects {
@@ -1145,7 +1150,7 @@ body.light-mode {
 }
 
 body.light-mode header {
-    background-color: #13131F;
+    background-color: #000000;
 }
 
 body.light-mode header.open {
@@ -1159,9 +1164,7 @@ body.light-mode header h2 {
 }
 
 /* AJUSTE: Removendo a cor roxa forçada e usando as variáveis do modo claro */
-body.light-mode .banner h1 {
-    color: var(--text-color) !important;
-}
+
 
 body.light-mode .banner span {
     color: var(--primary-color-text) !important;
@@ -1250,7 +1253,37 @@ body.light-mode section#skills .skills .container .cards .box p {
 body.light-mode section#projects .container .cards-projects .box .description a {
     border-color: var(--primary-color-text);
     color: var(--text-color);
+    background-color: #ffffff;
 }
+body.light-mode section#projects .container .cards-projects .box .description p {
+  color: #333;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  background: var(--primary-color-text);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.toast-success {
+  background: #4CAF50;
+}
+
+.toast-info {
+  background: var(--primary-color-text);
+}
+
+.toast.fade-out {
+  animation: slideOut 0.3s ease forwards;
+}
+
 
 /* AJUSTE: Cor do botão de fechar do modal */
 body.light-mode .modal .top .info .title i {
@@ -1266,12 +1299,12 @@ body.light-mode header .container .toggle input:checked+.label {
     background-color: var(--primary-color-text);
 }
 body.light-mode header .container .toggle .label .box {
-    background-color: #F9F9F9;
+    background-color: #ffffff;
 }
 
 /* AJUSTE: Cor de fundo do modal no modo claro */
 body.light-mode .modal {
-    background-color: #F9F9F9;
+    background-color: #ffffff;
 }
 body.light-mode .modal .top .info p {
     color: var(--text-secondary);

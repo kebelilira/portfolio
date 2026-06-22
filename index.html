@@ -10,9 +10,12 @@
         content="Portfólio de Kebeli Rodrigues, Engenheiro de Software especializado em ASP.NET, React, Next.js, TypeScript e desenvolvimento web moderno.">
 
   <meta name="robots" content="index, follow">
-  <meta name="google-site-verification"
-        content="qk6Sv7s_z-kzYtHiCVe1-9lr6BCjC1-II9k5V7Lt3c4" />
-
+  <meta name="google-site-verification" content="qk6Sv7s_z-kzYtHiCVe1-9lr6BCjC1-II9k5V7Lt3c4" />
+  <meta property="og:title" content="Kebeli Rodrigues | Software Engineer Portfolio">
+  <meta property="og:description" content="Portfólio de Kebeli Rodrigues, Engenheiro de Software especializado em ASP.NET, React e TypeScript">
+  <meta property="og:image" content="https://kebelirodrigues.com/assets/og-image.jpg">
+  <meta property="og:url" content="https://kebelirodrigues.com">
+  <meta name="twitter:card" content="summary_large_image">
   <title>
   Kebeli Rodrigues | Software Engineer | ASP.NET Core, C#, React
   </title>
@@ -40,11 +43,13 @@
       <a href="#sobre">
         <h2>Portfólio</h2>
       </a>
-      <div class="toggle">
-        <input type="checkbox" name="checkbox" id="checkbox"  aria-label="Alternar tema">
-        <label for="checkbox" class="label">
-          <div class="box"></div>
-        </label>
+      <div class="theme-toggle">
+        <div class="toggle">
+          <input type="checkbox" id="theme-toggle" aria-label="Alternar tema">
+          <label for="theme-toggle" class="label">
+            <div class="box"></div>
+          </label>
+        </div>
       </div>
     </div>
   </header>
@@ -58,16 +63,16 @@
             <p></p>
           </div>
           <div class="actions">
-            <a href="assets/KebeliRodrigues.pdf" download class="glow-text">Download CV</a>
-            <a href="mailto:kebeli.dev@gmail.com" target="_blank" class="glow-text">Entrar em contato</a>
-            <a href="https://github.com/kebelilira" target="_blank">GitHub</a>
+            <a href="assets/KebeliRodrigues.pdf" download class="glow-text" aria-label="Baixar currículo em PDF">Baixar Currículo</a>
+            <a href="mailto:kebeli.dev@gmail.com" target="_blank" aria-label="Entrar em contato">Entrar em contato</a>
+            <a href="https://github.com/kebelilira" target="_blank" aria-label="GitHub">GitHub</a>
           </div>
         </div>
       </div>
       <div class="about">
         <h2>Sobre mim</h2>
         <p>
-          Engenheiro de Software com experiência no desenvolvimento de aplicações web escalávept, React e bancos de dados relacionaisis utilizando C#, ASP.NET Core, JavaScript, TypeScript.
+          Engenheiro de Software com experiência no desenvolvimento de aplicações web escaláveis, React e bancos de dados relacionais utilizando C#, ASP.NET Core, JavaScript, TypeScript.
           Atuo no desenvolvimento de APIs, integração entre sistemas, modelagem de banco de dados, arquitetura de software e construção de aplicações modernas seguindo boas práticas de segurança, performance e manutenção.
           Tenho experiência em projetos corporativos, versionamento com Git, metodologias ágeis e foco na criação de soluções robustas e orientadas a negócio.
 
@@ -75,7 +80,7 @@
       </div>
     </div>
   </section>
-  <section id="sobre" class="js-section">
+  <section id="experiencia" class="js-section">
   <div class="about">
     <h2>Experiência Profissional</h2>
 
@@ -219,6 +224,7 @@
       <a href="" target="_blank" class="link-repository">Acessar repositório</a>
       <a href="" target="_blank" class="link-linkedin">Ver post no Linkedin</a>
     </div>
+  </div>
 </div>
 
 </body>

@@ -129,6 +129,39 @@ const initTypingAnimation = () => {
   setTimeout(() => typingAnimation(paragraph), 3700)
 
 }
+// Adicionar feedback visual
+const initToastNotifications = () => {
+  const showToast = (message, type = 'info') => {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.classList.add('fade-out');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  };
+  
+  // Usar ao baixar CV
+  document.querySelector('a[download]')?.addEventListener('click', () => {
+    showToast('Download iniciado!', 'success');
+  });
+};
+// Usar Intersection Observer para lazy loading
+const initLazyLoad = () => {
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src || img.src;
+        observer.unobserve(img);
+      }
+    });
+  });
+  images.forEach(img => observer.observe(img));
+};
 
 
 initOpenMenu()
