@@ -227,58 +227,37 @@ header .container h2 {
     color: #F9F9F9
 }
 
-header .container .toggle {
-    display: flex
+#checkbox {
+    display: none
 }
-
-header .container .toggle input {
-    opacity: 0;
-    position: absolute
-}
-
-header .container .toggle input:checked+.label .box {
-    transform: translateX(4rem)
-}
-
-@media (max-width: 480px) {
-    header .container .toggle input:checked+.label .box {
-        transform:translateX(2rem)
-    }
-}
-
-header .container .toggle input:checked+.label {
-    background-color: #F9F9F9
-}
-
-header .container .toggle .label {
+.toggler {
+    position: relative;
     display: flex;
-    background: var(--primary-color-text);
-    width: 6rem;
-    border-radius: 2rem;
-    padding: 0.3rem;
+    align-items: center;
+    gap: 0.5rem;
     cursor: pointer;
-    transition: background-color 0.5s
 }
-
-@media (max-width: 480px) {
-    header .container .toggle .label {
-        width:4rem
-    }
+.ball, .ri-moon-line, .ri-sun-line {
+    position: absolute;
+    transition: all 0.3s ease;
 }
-
-header .container .toggle .label .box {
-    background-color: #13131F;
-    height: 2rem;
+.ball {
     width: 2rem;
+    height: 2rem;
+    background-color: var(--primary-color-text);
     border-radius: 50%;
-    transition: 0.5s
+    left: 0;
 }
-
-@media (max-width: 480px) {
-    header .container .toggle .label .box {
-        height:1.5rem;
-        width: 1.5rem
-    }
+.sun {
+    left: 0;
+    color: #FFD700; /* Cor do sol */
+}
+.moon {
+    right: 0;
+    color: #F9F9F9; /* Cor da lua */
+}
+#checkbox:checked ~ .ball {
+    transform: translateX(2.5rem);
 }
 
 header::after {
